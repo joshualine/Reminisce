@@ -6,16 +6,10 @@ import java.time.LocalDate;
 @Entity
 @Table
 public class Story {
+
+
     @Id
-    @SequenceGenerator(
-            name = "story_sequence",
-            sequenceName = "story_sequence",
-            allocationSize =  1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "story_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String body;
     private LocalDate time;
@@ -29,6 +23,10 @@ public class Story {
     public Story(String body, LocalDate time) {
         this.body = body;
         this.time = time;
+    }
+
+    public Story() {
+
     }
 
     public Long getId() {
